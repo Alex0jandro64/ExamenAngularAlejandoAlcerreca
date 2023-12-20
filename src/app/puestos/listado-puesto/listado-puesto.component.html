@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del Puesto</th>
+            <th scope="col">Nombre de la Empresa</th>
+            <th scope="col">Disponible</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let puesto of listPuestos, let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{puesto.nombrePuesto}}</td>
+            <td>{{puesto.nombreEmpresa}}</td>
+            <td>{{puesto.disponible}}</td>
+            <td>
+                
+                <i class="bi bi-trash ps-3 text-danger" (click)="delJuego(puesto.id)"></i>
+                <a [routerLink]="['/detalle-entrevista']">Incribirme a la oferta</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

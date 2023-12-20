@@ -1,0 +1,112 @@
+
+<div class="container">
+    <h4>
+      <span [class.d-none]="nuevo">Editar</span>
+      <span [class.d-none]="!nuevo">Creando</span>
+      el Registro del candidato
+    </h4>
+    <!-- <h4 [class.d-none]="!nuevo">Creando el Registro del Juego</h4> -->
+    <form #candidatoform="ngForm" (ngSubmit)="onUpdate(candidatoform)">
+      <input
+        type="text"
+        class="d-none"
+        [(ngModel)]="candidato.dni"
+        name="dni"
+        #dniCtrl="ngModel"
+      />
+      <div class="form-group">
+        <label>Nombre</label>
+        <input
+          class="form-control"
+          name="nombreCompleto"
+          #nombreCtrl="ngModel"
+          [(ngModel)]="candidato.nombre"
+          placeholder="Pepe"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Apellidos</label>
+        <input
+          class="form-control"
+          name="apellidoCompleto"
+          #apellidoCtrl="ngModel"
+          [(ngModel)]="candidato.apellido"
+          placeholder="Pepe"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label>DNI</label>
+        <input
+          class="form-control"
+          name="dni"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="candidato.dni"
+          placeholder="12345678A"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        <input
+          class="form-control"
+          name="fechaNacimiento"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="candidato.fechaNacimiento"
+          placeholder="Hoy"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Telefono</label>
+        <input
+          class="form-control"
+          name="telefono"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="candidato.telefono"
+          placeholder="655444333"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label>Correo Electronico</label>
+        <input
+          class="form-control"
+          name="mail"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="candidato.mail"
+          placeholder="pepe@gmail.com"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label>Direccion</label>
+        <input
+          class="form-control"
+          name="direccion"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="candidato.direccion"
+          placeholder="Calle pepito nº4"
+          required
+        />
+      </div>
+  
+  
+  
+      <div class="form-group float-right">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!candidatoform.valid"
+        >
+          <i class="bi bi-plus"></i><span [class.d-none]="nuevo">Editar</span>
+          <span [class.d-none]="!nuevo">Crear</span> Candidato
+        </button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,27 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dni del Canditato</th>
+            <th scope="col">Puesto al que opta</th>
+            <th scope="col">Fecha de la entrevista</th>
+            <th scope="col">Realizada</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entrevista of listEntrevistas, let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{entrevista.canditadoDni}}</td>
+            <td>{{entrevista.puesto}}</td>
+            <td>{{entrevista.fechaEntrevista}}</td>
+            <td>{{entrevista.realizada}}</td>
+            <td>
+                
+                <i class="bi bi-trash ps-3 text-danger" (click)="delJuego(entrevista.id)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

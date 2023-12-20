@@ -1,0 +1,66 @@
+
+<div class="container">
+    <h4>
+      <span [class.d-none]="nuevo">Editar</span>
+      <span [class.d-none]="!nuevo">Creando</span>
+      el Registro de la Entrevista
+    </h4>
+    <!-- <h4 [class.d-none]="!nuevo">Creando el Registro del Juego</h4> -->
+    <form #puestoform="ngForm" (ngSubmit)="onUpdate(puestoform)">
+      <input
+        type="text"
+        class="d-none"
+        [(ngModel)]="puesto.id"
+        name="id"
+        #idCtrl="ngModel"
+      />
+      <div class="form-group">
+        <label>Nombre del Puesto</label>
+        <input
+          class="form-control"
+          name="puestoNombre"
+          #puestoNombreCtrl="ngModel"
+          [(ngModel)]="puesto.nombrePuesto"
+          placeholder="FrontEnd Developer"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Nombre de la Empresa</label>
+        <input
+          class="form-control"
+          name="NombreEmpresa"
+          #nombreEmpresaCtrl="ngModel"
+          [(ngModel)]="puesto.nombreEmpresa"
+          placeholder="Deloitte"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label>Disponible</label>
+        <input
+          class="form-control"
+          name="Disponible"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="puesto.disponible"
+          placeholder="true/false"
+          required
+        />
+      </div>
+  
+      <div class="form-group float-right">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!puestoform.valid"
+        >
+          <i class="bi bi-plus"></i><span [class.d-none]="nuevo">Editar</span>
+          <span [class.d-none]="!nuevo">Crear</span> Puesto
+        </button>
+      </div>
+    </form>
+  </div>
+
+

@@ -1,0 +1,34 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Dni</th>
+            <th scope="col">Fecha de Nacimineto</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Direccion</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let candidato of listCandidatos, let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{candidato.nombre}}</td>
+            <td>{{candidato.apellido}}</td>
+            <td>{{candidato.dni}}</td>
+            <td>{{candidato.fechaNacimiento}}</td>
+            <td>{{candidato.telefono}}</td>
+            <td>{{candidato.mail}}</td>
+            <td>{{candidato.direccion}}</td>
+            <td>
+                
+               <i class="bi bi-trash ps-3 text-danger" (click)="(delJuego(candidato.dni))"></i>
+
+               <i class="bi bi-pencil-square text-success" routerLink="/candidatos/edit-candidato/{{candidato.dni}}"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

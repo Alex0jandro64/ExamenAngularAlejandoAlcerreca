@@ -1,0 +1,64 @@
+
+<div class="container">
+    <h4>
+      <span [class.d-none]="nuevo">Editar</span>
+      <span [class.d-none]="!nuevo">Creando</span>
+      el Registro de la Entrevista
+    </h4>
+    <!-- <h4 [class.d-none]="!nuevo">Creando el Registro del Juego</h4> -->
+    <form #entrevistaform="ngForm" (ngSubmit)="onUpdate(entrevistaform)">
+      <input
+        type="text"
+        class="d-none"
+        [(ngModel)]="entrevista.id"
+        name="id"
+        #idCtrl="ngModel"
+      />
+      <div class="form-group">
+        <label>Dni Candidato</label>
+        <select class='form-control' name="puesto" #tipoCtrl="ngModel"
+        [(ngModel)]="entrevista.canditadoDni">
+            <option value="">Selecciona el dni del solicitante.</option>
+            <option *ngFor="let section of listCandidatos" [value]="section.dni">
+              {{section.dni}}</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label>Prueba de Entrevista</label>
+        <select class='form-control' name="puesto" #tipoCtrl="ngModel"
+        [(ngModel)]="entrevista.puesto">
+
+            <option value="">Selecciona el puesto.</option>
+            <option *ngFor="let section of listPuestos" [value]="section.id">
+              {{section.nombrePuesto}}</option>
+          </select>
+      </div>
+
+      
+  
+      <div class="form-group">
+        <label>Fecha de la Entrevista</label>
+        <input
+          class="form-control"
+          name="fecha"
+          #tipoCtrl="ngModel"
+          [(ngModel)]="entrevista.fechaEntrevista"
+          placeholder="Mañana"
+          required
+        />
+      </div>
+  
+      <div class="form-group float-right">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!entrevistaform.valid"
+        >
+          <i class="bi bi-plus"></i><span [class.d-none]="nuevo">Editar</span>
+          <span [class.d-none]="!nuevo">Crear</span> Entrevista
+        </button>
+      </div>
+    </form>
+  </div>
+
